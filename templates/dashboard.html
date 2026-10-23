@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block title %}Dashboard · Attendance{% endblock %}
+{% block content %}<div class="d-flex flex-wrap justify-content-between align-items-end mb-4"><div><h1 class="h2 page-title">Dashboard</h1><p class="text-secondary mb-0">{{ today.strftime('%A, %d %B %Y') }}</p></div><a class="btn btn-primary mt-2" href="{{ url_for('attendance') }}">Mark attendance</a></div>
+<div class="row g-3">
+{% for label,value,desc in [('Active students',students_count,'Student records'),('Present today',present_count,'Marked present'),('Absent today',absent_count,'Marked absent'),('On leave today',leave_count,'Marked on leave')] %}
+<div class="col-6 col-lg-3"><div class="card p-4 h-100"><div class="text-secondary small">{{ label }}</div><div class="display-5 fw-bold page-title">{{ value }}</div><div class="small text-secondary">{{ desc }}</div></div></div>{% endfor %}
+</div>
+<div class="card p-4 mt-4"><h2 class="h5 page-title">Quick actions</h2><div class="d-flex flex-wrap gap-2"><a class="btn btn-outline-primary" href="{{ url_for('reports') }}">View reports</a>{% if current_role == 'admin' %}<a class="btn btn-outline-primary" href="{{ url_for('students') }}">Manage students</a><a class="btn btn-outline-primary" href="{{ url_for('teachers') }}">Manage teachers</a><a class="btn btn-outline-primary" href="{{ url_for('backup') }}">Download local backup</a>{% endif %}</div></div>{% endblock %}

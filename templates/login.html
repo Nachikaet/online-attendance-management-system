@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}Login · Attendance{% endblock %}
+{% block content %}<div class="row justify-content-center mt-4"><div class="col-12 col-sm-10 col-md-6 col-lg-5"><div class="card p-4 p-md-5">
+<div class="text-center mb-4"><div class="fs-1">📋</div><h1 class="h3 page-title">Attendance Portal</h1><p class="text-secondary mb-0">Sankar Matriculation School</p></div>
+<form method="post"><label class="form-label" for="username">Username</label><input class="form-control mb-3" id="username" name="username" required autocomplete="username">
+<label class="form-label" for="password">Password</label><input class="form-control mb-4" type="password" id="password" name="password" required autocomplete="current-password">
+<button class="btn btn-primary w-100 py-2">Sign in</button></form>
+<div class="small text-secondary mt-3">Demo credentials are documented in the project README. Change them before public use.</div>
+</div></div></div>{% endblock %}
